@@ -1,0 +1,29 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "Better Shulkers",
+        "description": "By Nipitare",
+        "uuid": "e91b022e-d926-42bd-a6d4-7582cddef69a",
+        "version": [
+            1,
+            0,
+            0
+        ],
+        "min_engine_version": [
+            1,
+            21,
+            0
+        ]
+    },
+    "modules": [
+        {
+            "type": "resources",
+            "uuid": "0d458ceb-2bc3-4733-8580-409aece16d5e",
+            "version": [
+                1,
+                0,
+                0
+            ]
+        }
+    ]
+}

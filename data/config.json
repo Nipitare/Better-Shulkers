@@ -1,0 +1,24 @@
+{
+	"$schema": "https://raw.githubusercontent.com/Bedrock-OSS/regolith-schemas/main/config/v1.4.json",
+	"author": "Nipitare",
+	"name": "BetterShulkers",
+	"packs": {
+		"resourcePack": "./packs/RP"
+	},
+	"regolith": {
+		"dataPath": "./packs/data",
+		"filterDefinitions": {},
+		"formatVersion": "1.4.0",
+		"profiles": {
+			"default": {
+				"export": {
+					"build": "standard",
+					"readOnly": false,
+					"target": "exact",
+					"rpPath": "%localappdata%/Packages/Microsoft.MinecraftUWP_8wekyb3d8bbwe/LocalState/games/com.mojang/amethyst/mods/BetterShulkers@0.0.0-dev/resource_packs/main_rp"
+				},
+				"filters": []
+			}
+		}
+	}
+}

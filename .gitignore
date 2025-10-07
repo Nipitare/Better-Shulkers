@@ -1,0 +1,6 @@
+build/
+.importer/
+.xmake/
+.vscode/
+vsxmake2022/
+data/.regolith/
