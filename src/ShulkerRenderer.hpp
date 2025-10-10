@@ -16,8 +16,6 @@
 
 class ShulkerRenderer {
 private:
-	mce::TexturePtr mWhiteBackgroundTexture;
-
 	mce::TexturePtr mBackgroundTexture;
 	mce::TexturePtr mItemSlotTexture;
 

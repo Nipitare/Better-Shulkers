@@ -31,6 +31,9 @@
 #include <typeindex>
 #include <mc/src/common/world/level/Level.hpp>
 #include <amethyst/runtime/ModContext.hpp>
+#include <amethyst/runtime/input/InputManager.hpp>
+#include <amethyst/runtime/events/InputEvents.hpp>
+#include <amethyst/runtime/ctx/ClientContext.hpp>
 
 #include "ShulkerRenderer.hpp"
 
