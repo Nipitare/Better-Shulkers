@@ -33,8 +33,7 @@ int countNewlines(const std::string& str) {
     return newlineCount;
 }
 
-void ShulkerRenderer::Render(MinecraftUIRenderContext* ctx, HoverRenderer* hoverRenderer, int index, std::string boxcolor, IClientInstance& _client) {
-    ClientInstance& client = _client.asInstance();
+void ShulkerRenderer::Render(MinecraftUIRenderContext* ctx, HoverRenderer* hoverRenderer, int index, std::string boxcolor) {
 	// Only load inventory resources once
 	if (!hasLoadedTexture) {
 
@@ -113,12 +112,14 @@ void ShulkerRenderer::Render(MinecraftUIRenderContext* ctx, HoverRenderer* hover
             float right = (x * slotSize) + borderSize + panelX + 4;
             float left = right + 6.f;
 
+            if (itemStack->mCount < 10) left = left + 6.f;
+
             std::string text = std::format("{}", itemStack->mCount);
             RectangleArea rect = { left, right, top + 9.f, bottom};
             RectangleArea rect1 = { left + 1.f , right, top + 10.f, bottom};
 
-            ctx->drawDebugText(&rect1, &text, &mce::Color::FONT_DARK_GRAY_BG, 1.0f, ui::Left, &textData, &caretData);
-            ctx->drawDebugText(&rect, &text, &mce::Color::WHITE, 1.0f, ui::Left, &textData, &caretData);
+            ctx->drawDebugText(&rect1, &text, &mce::Color::FONT_DARK_GRAY_BG, 1.0f, ui::Right, &textData, &caretData);
+            ctx->drawDebugText(&rect, &text, &mce::Color::WHITE, 1.0f, ui::Right, &textData, &caretData);
         }
     }
     ctx->flushText(0.0f);

@@ -12,7 +12,7 @@
 #include <mc/src-client/common/client/renderer/NinesliceInfo.hpp>
 #include <amethyst/ui/NinesliceHelper.hpp>
 
-#define SHULKER_CACHE_SIZE 16
+#define SHULKER_CACHE_SIZE 256
 
 class ShulkerRenderer {
 private:
@@ -20,5 +20,5 @@ private:
 	mce::TexturePtr mItemSlotTexture;
 
 public:
-	void Render(MinecraftUIRenderContext* ctx, HoverRenderer* hoverRenderer, int index, std::string boxcolor, IClientInstance& _client);
+	void Render(MinecraftUIRenderContext* ctx, HoverRenderer* hoverRenderer, int index, std::string boxcolor);
 };
