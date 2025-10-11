@@ -39,10 +39,11 @@ void ShulkerBoxBlockItem_appendFormattedHovertext(ShulkerBoxBlockItem* self, con
     auto& options = *Amethyst::GetClientCtx().mOptions;
     auto& mapping = *options.getCurrentKeyboardRemapping();
     auto* keymapping = mapping.getKeymappingByAction("key.better_shulkers.show_shulker_preview");
-    if (keymapping && keymapping->isAssigned())
-        hovertext.insert(hovertext.find("\n§o§9Minecraft"), std::format("\n§8Hold §6{}§r§8 to see contents§r", mapping.getMappedKeyName(*keymapping)));
+    std::string keyName = keymapping ? mapping.getMappedKeyName(*keymapping) : "Unknown";
+    if (keymapping && keymapping->isAssigned()) 
+        hovertext.insert(hovertext.find("\n§o§9Minecraft"), "\n" + std::vformat("action.better_shulkers.show_shulker_preview"_i18n, std::make_format_args(keyName)));
     }
-
+    hovertext += std::format("§v");
     int thisIndex = index;
     // Reset all the currrent item stacks
     for (auto& itemStack : shulkerInventory[index]) {
@@ -72,7 +73,7 @@ void ShulkerBoxBlockItem_appendFormattedHovertext(ShulkerBoxBlockItem* self, con
         RectangleArea*,
         float>(self, ctx, client, aabb, someFloat);
 
-    if (self->mFilteredContent.find("tile.shulkerBox.name"_i18n) <= 20 && ShowShulkerPreview) {
+    if (self->mFilteredContent.find("§v") == self->mFilteredContent.size() - 9 && ShowShulkerPreview) {
         std::string color = self->mFilteredContent.substr(8, 1);
         std::string cachedIndex = self->mFilteredContent.substr(2, 1) + self->mFilteredContent.substr(5, 1);
         try {
