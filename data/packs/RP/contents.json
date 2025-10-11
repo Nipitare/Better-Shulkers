@@ -13,6 +13,9 @@
          "path": "textures/gui/Whitegui.png"
       },
       {
+         "path": "texts/en_US.lang"
+      },
+      {
          "path" : "contents.json"
       },
       {

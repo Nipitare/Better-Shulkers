@@ -5,39 +5,11 @@ ClientInstance* client;
 ShulkerRenderer shulkerRenderer;
 ItemStack shulkerInventory[SHULKER_CACHE_SIZE][27]; 
 
-SafetyHookInline _Item_appendFormattedHovertext;
 SafetyHookInline _ShulkerBoxBlockItem_appendFormattedHovertext;
 SafetyHookInline _HoverRenderer__renderHoverBox;
 
 int index = 0;
 bool ShowShulkerPreview = false;
-
-void Item_appendFormattedHovertext(Item* self, const ItemStackBase& stack, Level& level, std::string& hovertext, bool showCategory)
-{
-
-    _Item_appendFormattedHovertext.thiscall<
-        void,
-        Item*,
-        const ItemStackBase&,
-        Level&,
-        std::string&,
-        bool>(self, stack, level, hovertext, showCategory);
-
-    Item* item = stack.mItem;
-    uint64_t max = item->getMaxDamage();
-
-    std::string rawNameId = std::string(item->mRawNameId.c_str());
-
-    if (max != 0) {
-        uint64_t current = max - item->getDamageValue(stack.mUserData);
-        hovertext += std::format("\n§7Durability: {} / {}§r", current, max);
-    }
-
-    if (rawNameId.find("shulker_box") != std::string::npos) {
-        hovertext += std::format("§v");
-        return;
-    }
-}
 
 void ShulkerBoxBlockItem_appendFormattedHovertext(ShulkerBoxBlockItem* self, const ItemStackBase& itemStack, Level& level, std::string& hovertext, bool showCategory) {
 
@@ -96,7 +68,7 @@ void ShulkerBoxBlockItem_appendFormattedHovertext(ShulkerBoxBlockItem* self, con
         RectangleArea*,
         float>(self, ctx, client, aabb, someFloat);
 
-    if (self->mFilteredContent.find(std::format("§v")) < 100 && ShowShulkerPreview) {
+    if (self->mFilteredContent.find("tile.shulkerBox.name"_i18n) <= 9 && ShowShulkerPreview) {
         std::string color = self->mFilteredContent.substr(5, 1);
         std::string cachedIndex = self->mFilteredContent.substr(2, 1);
         try {
@@ -131,8 +103,6 @@ ModFunction void Initialize(AmethystContext& ctx, const Amethyst::Mod& mod) {
         return Amethyst::InputPassthrough::Passthrough;
     });
     });
-
-    VHOOK(Item, appendFormattedHovertext, this);
 
     VHOOK(ShulkerBoxBlockItem, appendFormattedHovertext, this);
 

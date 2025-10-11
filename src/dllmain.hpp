@@ -34,6 +34,7 @@
 #include <amethyst/runtime/input/InputManager.hpp>
 #include <amethyst/runtime/events/InputEvents.hpp>
 #include <amethyst/runtime/ctx/ClientContext.hpp>
+#include <mc/src/common/locale/I18n.hpp>
 
 #include "ShulkerRenderer.hpp"
 
