@@ -4,13 +4,10 @@
          "path" : "manifest.json"
       },
       {
-         "path" : "textures/ui/purpleBorder.png"
-      },
-      {
          "path" : "textures/ui/whiteBorder.png"
       },
       {
-         "path": "textures/gui/Whitegui.png"
+         "path": "textures/gui/itemslot.png"
       },
       {
          "path": "texts/en_US.lang"
