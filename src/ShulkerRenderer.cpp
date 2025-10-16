@@ -105,21 +105,21 @@ void ShulkerRenderer::Render(MinecraftUIRenderContext* ctx, HoverRenderer* hover
             float spare = max / 13.0 - max / 13;
 
             int durabiltyState = 0;
-            int idk = 1;
+            int number = 1;
             int damageForNext = 1;
 
             for (int i = 1; i < 14; i++) {
                 if (damage >= damageForNext) {
                     durabiltyState++;
-                    i * spare >= idk ? (idk++, damageForNext+= max / 13 + 1) : damageForNext += max / 13;
+                    i * spare >= number ? (number++, damageForNext+= max / 13 + 1) : damageForNext += max / 13;
                 }
             }
-            RectangleArea test = {panelX + slotSize * x + 7, panelX + slotSize * x + 20, panelY + textHeight + slotSize * y + 15.5f, panelY + textHeight + slotSize * y + 17.5f};
-            RectangleArea test1 = { panelX + slotSize * x + 7, panelX + slotSize * x + 7 + (13 - durabiltyState), panelY + textHeight + slotSize * y + 15.5f, panelY + textHeight + slotSize * y + 16.5f};
+            RectangleArea durabiltyBackground = {panelX + slotSize * x + 7, panelX + slotSize * x + 20, panelY + textHeight + slotSize * y + 15.5f, panelY + textHeight + slotSize * y + 17.5f};
+            RectangleArea durabiltyForeground = { panelX + slotSize * x + 7, panelX + slotSize * x + 7 + (13 - durabiltyState), panelY + textHeight + slotSize * y + 15.5f, panelY + textHeight + slotSize * y + 16.5f};
 
-            ctx->fillRectangle(test, mce::Color(0, 0, 0, 1), 1.0f);
+            ctx->fillRectangle(durabiltyBackground, mce::Color(0, 0, 0, 1), 1.0f);
             
-            ctx->fillRectangle(test1, durabiltyColor.at(durabiltyState), 1.0f);
+            ctx->fillRectangle(durabiltyForeground, durabiltyColor.at(durabiltyState), 1.0f);
         }
     }
 

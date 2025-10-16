@@ -2,8 +2,16 @@
 
 Better Shulkers is an shulker box preview mod for Minecraft Bedrock edition, version `1.21.0.3` THe mod is an fork of [Better Inventory](https://github.com/AmethystAPI/Better-Inventory) and is built with [Amethyst](https://github.com/FrederoxDev/Amethyst).
 
-# Colored Shulker Box previews
+## Features
 
-![Colored Shulker Box previews](colored_shulker_1.png)
+### Colored previews
 
-![Colored Shulker Box previews](colored_shulker_2.png)
+![Image](white_shulker_showcase.jpg)
+
+![Image](orange_shulker_showcase.jpg)
+
+![Image](black_shulker_showcase.jpg)
+
+### Durabilty bars
+
+![Image](durability_showcase.jpg)
