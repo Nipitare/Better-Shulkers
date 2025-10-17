@@ -92,6 +92,13 @@ jobs:
 
                 Compress-Archive -Path "$tempPath\*" -DestinationPath $zipName
 
+            - name: Create Git tag
+              shell: pwsh
+              run: |
+                $TAG_NAME = "v${env:NEW_VERSION}"
+                git tag $TAG_NAME
+                git push origin $TAG_NAME
+            
             - name: Create GitHub Release
               id: create_release
               run: |
