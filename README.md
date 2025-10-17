@@ -10,8 +10,6 @@ Better Shulkers is an shulker box preview mod for Minecraft Bedrock edition, ver
 
 ![Image](orange_shulker_showcase.jpg)
 
-![Image](black_shulker_showcase.jpg)
-
 ### Durabilty bars
 
 ![Image](durability_showcase.jpg)
