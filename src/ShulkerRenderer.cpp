@@ -68,7 +68,7 @@ void ShulkerRenderer::Render(MinecraftUIRenderContext* ctx, HoverRenderer* hover
             glm::tvec2<float> size(slotSize, slotSize);
             glm::tvec2<float> position(panelX + 4 + slotSize * x, panelY + 2 + textHeight + slotSize * y);
 
-            ctx->drawImage(mItemSlotTexture, &position, &size, &itemSlotUvPos, &itemSlotUvSize, 0);
+            ctx->drawImage(mItemSlotTexture, position, size, itemSlotUvPos, itemSlotUvSize, 0);
         }
     }
 
